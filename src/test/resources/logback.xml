@@ -40,7 +40,5 @@
     <logger name="sun.rmi.transport" level="WARN"/>
     <logger name="com.tngtech.archunit.core.importer" level="ERROR"/>
     <logger name="org.hibernate.orm.incubating" level="ERROR"/>
-    <logger name="liquibase" level="WARN"/>
-    <logger name="LiquibaseSchemaResolver" level="INFO"/>
 
 </configuration>

@@ -59,7 +59,7 @@ class StaticResourcesWebConfigurerTest {
   }
 
   @Test
-  void shouldCreateCacheControlBasedOnJhipsterDefaultProperties() {
+  void shouldCreateCacheControlBasedOnDefaultProperties() {
     CacheControl cacheExpected =
         CacheControl.maxAge(props.getHttp().getCache().getTimeToLiveInDays(), TimeUnit.DAYS)
             .cachePublic();

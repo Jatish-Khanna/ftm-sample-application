@@ -12,7 +12,6 @@ public final class Constants {
   public static final String SPRING_PROFILE_CLOUD = "cloud";
   public static final String SPRING_PROFILE_HEROKU = "heroku";
   public static final String SPRING_PROFILE_API_DOCS = "api-docs";
-  public static final String SPRING_PROFILE_NO_LIQUIBASE = "no-liquibase";
   public static final String SPRING_PROFILE_K8S = "k8s";
 
   private Constants() {}

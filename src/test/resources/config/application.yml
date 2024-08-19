@@ -22,15 +22,6 @@ spring:
     allow-bean-definition-overriding: true
   messages:
     basename: i18n/messages
-  security:
-    oauth2:
-      client:
-        provider:
-          oidc:
-            issuer-uri: http://DO_NOT_CALL:9080/realms/myrealm
-      resourceserver:
-        jwt:
-          principal-claim-name: preferred_username
   task:
     execution:
       thread-name-prefix: ftm-sample-application-task-

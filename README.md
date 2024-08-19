@@ -4,26 +4,7 @@
 
 ## Development
 
-### OAuth 2.0 / OpenID Connect
 
-
-The security settings in `src/main/resources/config/application.yml` are configured for this image.
-
-```yaml
-spring:
-  ...
-  security:
-    oauth2:
-      client:
-        provider:
-          oidc:
-            issuer-uri: http://localhost:9080/realms/myrealms
-        registration:
-          oidc:
-            client-id: web_app
-            client-secret: web_app
-            scope: openid,profile,email
-```
 
 Some of Keycloak configuration is now done in build time and the other part before running the app, here is the [list](https://www.keycloak.org/server/all-config) of all build and configuration options.
 

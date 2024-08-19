@@ -45,7 +45,6 @@ management:
           - loggers
           - prometheus
           - threaddump
-          - liquibase
   endpoint:
     health:
       show-details: when_authorized
@@ -138,23 +137,7 @@ spring:
     basename: i18n/messages
   main:
     allow-bean-definition-overriding: true
-  mvc:
-    problemdetails:
-      enabled: true
-  security:
-    oauth2:
-      client:
-        registration:
-          keycloak:
-            client-id: myapp
-            client-secret: "sjNYlUA64PwlSLfU9TvpzcOK0RNxnb7W"
-            authorization-grant-type: authorization_code
-            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
-            scope: openid, profile, email
-            provider: keycloak
-        provider:
-          keycloak:
-            issuer-uri: http://localhost:8080/realms/myrealm
+
   task:
     execution:
       thread-name-prefix: ftm-sample-application-task-

@@ -1,7 +1,6 @@
 package com.mycompany.myapp;
 
 import com.mycompany.myapp.config.ApplicationProperties;
-import com.mycompany.myapp.config.CRLFLogConverter;
 import com.mycompany.myapp.config.Constants;
 import jakarta.annotation.PostConstruct;
 import java.net.InetAddress;
@@ -14,12 +13,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.liquibase.LiquibaseProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.core.env.Environment;
 
 @SpringBootApplication
-@EnableConfigurationProperties({LiquibaseProperties.class, ApplicationProperties.class})
+@EnableConfigurationProperties({ApplicationProperties.class})
 public class FtmSampleApplicationApp {
 
   private static final Logger log = LoggerFactory.getLogger(FtmSampleApplicationApp.class);
@@ -59,7 +57,6 @@ public class FtmSampleApplicationApp {
       log.warn("The host name could not be determined, using `localhost` as fallback");
     }
     log.info(
-        CRLFLogConverter.CRLF_SAFE_MARKER,
         """
 
                         ----------------------------------------------------------
