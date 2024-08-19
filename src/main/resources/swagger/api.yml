@@ -9,7 +9,7 @@ servers:
     description: Development server
   - url: https://localhost:8081/api
     description: Development server with TLS Profile
-paths: {}
+paths: { }
 components:
   responses:
     Problem:
@@ -27,7 +27,7 @@ components:
                   it SHOULD provide human-readable documentation for the problem type
                   (e.g., using HTML).
                 default: 'about:blank'
-                example: 'https://www.jhipster.tech/problem/problem-with-message'
+                example: 'https://www.mydomain.tech/problem/problem-with-message'
               title:
                 type: string
                 description: |
@@ -63,16 +63,15 @@ components:
       description: OAuth2 authentication with KeyCloak
       flows:
         authorizationCode:
-          authorizationUrl: http://localhost:9080/realms/jhipster/protocol/openid-connect/auth
-          tokenUrl: http://localhost:9080/realms/jhipster/protocol/openid-connect/token
+          authorizationUrl: http://localhost:9080/realms/myrealms/protocol/openid-connect/auth
+          tokenUrl: http://localhost:9080/realms/myrealms/protocol/openid-connect/token
           scopes:
-            jhipster: Jhipster specific claims
             email: Email claims
             profile: Profile claims
     openId:
       type: openIdConnect
       description: OpenID Connect authentication with KeyCloak
-      openIdConnectUrl: http://localhost:9080/realms/jhipster/.well-known/openid-configuration
+      openIdConnectUrl: http://localhost:9080/realms/myrealms/.well-known/openid-configuration
 security:
-  - oauth: [jhipster, email, profile]
-  - openId: [jhipster, email, profile]
+  - oauth: [ email, profile ]
+  - openId: [ email, profile ]

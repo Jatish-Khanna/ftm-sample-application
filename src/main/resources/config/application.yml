@@ -3,9 +3,6 @@
 #
 # This configuration will be overridden by the Spring profile you use,
 # for example application-dev.yml if you use the "dev" profile.
-#
-# More information on profiles: https://www.jhipster.tech/profiles/
-# More information on configuration properties: https://www.jhipster.tech/common-application-properties/
 # ===================================================================
 
 # ===================================================================
@@ -147,17 +144,17 @@ spring:
   security:
     oauth2:
       client:
-        provider:
-          oidc:
-            issuer-uri: http://localhost:9080/realms/jhipster
         registration:
-          oidc:
-            client-id: internal
-            client-secret: internal
-            scope: openid, profile, email, offline_access # last one for refresh tokens
-      resourceserver:
-        jwt:
-          principal-claim-name: preferred_username
+          keycloak:
+            client-id: myapp
+            client-secret: "sjNYlUA64PwlSLfU9TvpzcOK0RNxnb7W"
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope: openid, profile, email
+            provider: keycloak
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8080/realms/myrealm
   task:
     execution:
       thread-name-prefix: ftm-sample-application-task-
@@ -190,49 +187,15 @@ info:
   display-ribbon-on-profiles: 'dev'
 
 # ===================================================================
-# JHipster specific properties
-#
-# Full reference is available at: https://www.jhipster.tech/common-application-properties/
+# Application specific properties
+# Add your own application properties here, see the ApplicationProperties class
 # ===================================================================
 
-jhipster:
-  clientApp:
-    name: 'ftmSampleApplicationApp'
-  # By default CORS is disabled. Uncomment to enable.
-  # cors:
-  #   allowed-origins: "http://localhost:8100,http://localhost:9000"
-  #   allowed-methods: "*"
-  #   allowed-headers: "*"
-  #   exposed-headers: "Authorization,Link,X-Total-Count,X-${jhipster.clientApp.name}-alert,X-${jhipster.clientApp.name}-error,X-${jhipster.clientApp.name}-params"
-  #   allow-credentials: true
-  #   max-age: 1800
-  mail:
-    from: ftmSampleApplication@localhost
-  api-docs:
-    default-include-pattern: /api/**
-    management-include-pattern: /management/**
-    title: Ftm Sample Application API
-    description: Ftm Sample Application API documentation
-    version: 0.0.1
-    terms-of-service-url:
-    contact-name:
-    contact-url:
-    contact-email:
-    license: unlicensed
-    license-url:
+application:
+  clientAppName: 'ftmSampleApplicationApp'
   security:
     content-security-policy: "default-src 'self'; frame-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://storage.googleapis.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:"
     oauth2:
       audience:
         - account
         - api://default
-# ===================================================================
-# Application specific properties
-# Add your own application properties here, see the ApplicationProperties class
-# to have type-safe configuration, like in the JHipsterProperties above
-#
-# More documentation is available at:
-# https://www.jhipster.tech/common-application-properties/
-# ===================================================================
-
-# application:
